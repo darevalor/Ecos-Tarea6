@@ -10,14 +10,11 @@
                 <tr>
                     <td colspan="2">
                         <h2>Cargar un archivo .txt con los valores separados por punto y coma. 
-                            Los titulos deben contener las iniciales en mayusculas de la siguiente forma:<br><br>
+                            <br><br>
                         </h2>
                         <ul>
-                            <li>Program Number PN</li>
-                            <li>Estimated Proxy Size EPS</li>
-                            <li>Plan Added and Modified size PAMS</li>
-                            <li>Actual Added and Modified Size AAMS</li>
-                            <li>Actual Development Hours ADH</li>
+                            <li>Antes de relacionar la tabla de Clases dejar una linea con el titulo LOC/Method Data</li>
+                            <li>Antes de relacionar la tabla de Capitulos dejar una linea con el titulo Pgs/Chapter</li>
                         </ul>
                     </td>
                 </tr>
