@@ -82,7 +82,7 @@ public class ClassModel extends SizeRange {
     }
 
     /**
-     * Retorna una lista con los tamaños por metodo
+     * Retorna una lista con los tamanios por metodo
      *
      * @return Lista con objetos de tipo Double
      */
@@ -91,7 +91,7 @@ public class ClassModel extends SizeRange {
     }
 
     /**
-     * Establece una lista con los tamaños por metodo
+     * Establece una lista con los tamanios por metodo
      *
      * @param sizePerItem Lista con objetos de tipo Double
      */

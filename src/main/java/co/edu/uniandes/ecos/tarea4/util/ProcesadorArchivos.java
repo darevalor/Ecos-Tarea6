@@ -55,7 +55,7 @@ public class ProcesadorArchivos {
                     isLocMethodData = false;
                 } else if (!linea.contains(Constantes.CLASS_NAME) && !linea.contains(Constantes.PAGES)) {
                     String[] vector = linea.split(";");
-                    System.out.println("Tamaño vector: " + vector.length);
+                    System.out.println("Tamanio vector: " + vector.length);
 
                     if (isLocMethodData && vector.length == 3) {
                         classLoc = Double.parseDouble(vector[1]);

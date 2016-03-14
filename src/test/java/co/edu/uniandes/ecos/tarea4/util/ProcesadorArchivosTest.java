@@ -44,6 +44,7 @@ public class ProcesadorArchivosTest {
     /**
      * Test of obtenerGrupoDeDatos method, of class ProcesadorArchivos.
      */
+    @Ignore
     @Test
     public void testObtenerGrupoDeDatos() throws Exception {
         System.out.println("obtenerGrupoDeDatos");
