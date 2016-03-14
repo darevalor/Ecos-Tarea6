@@ -47,30 +47,30 @@ public class ProcesadorArchivos {
             String linea = br.readLine();
             while (linea != null) {
                 System.out.println("Linea: " + linea);
-//                if (linea.contains(Constantes.LOC_METHOD_DATA)) {
-//                    isLocMethodData = true;
-//                    isPgsChapter = false;
-//                } else if (linea.contains(Constantes.PGS_CHAPTER)) {
-//                    isPgsChapter = true;
-//                    isLocMethodData = false;
-//                } else if (!linea.contains(Constantes.CLASS_NAME) && !linea.contains(Constantes.PAGES)) {
-//                    String[] vector = linea.split(";");
-//                    System.out.println("Tamaño vector: " + vector.length);
-//
-//                    if (isLocMethodData && vector.length == 3) {
-//                        classLoc = Double.parseDouble(vector[1]);
-//                        numberOfMethods = Double.parseDouble(vector[2]);
-//
-//                        classModel.getClassNames().add(vector[0]);
-//                        classModel.getClassLoc().add(classLoc);
-//                        classModel.getNumberOfMethods().add(numberOfMethods);
-//                        classModel.getSizePerItem().add(classLoc / numberOfMethods);
-//
-//                    } else if (isPgsChapter && vector.length == 2) {
-//                        bookModel.getChapterNames().add(vector[0]);
-//                        bookModel.getNumberOfPages().add(new Double(vector[1]));
-//                    }
-//                }
+                if (linea.contains(Constantes.LOC_METHOD_DATA)) {
+                    isLocMethodData = true;
+                    isPgsChapter = false;
+                } else if (linea.contains(Constantes.PGS_CHAPTER)) {
+                    isPgsChapter = true;
+                    isLocMethodData = false;
+                } else if (!linea.contains(Constantes.CLASS_NAME) && !linea.contains(Constantes.PAGES)) {
+                    String[] vector = linea.split(";");
+                    System.out.println("Tamaño vector: " + vector.length);
+
+                    if (isLocMethodData && vector.length == 3) {
+                        classLoc = Double.parseDouble(vector[1]);
+                        numberOfMethods = Double.parseDouble(vector[2]);
+
+                        classModel.getClassNames().add(vector[0]);
+                        classModel.getClassLoc().add(classLoc);
+                        classModel.getNumberOfMethods().add(numberOfMethods);
+                        classModel.getSizePerItem().add(classLoc / numberOfMethods);
+
+                    } else if (isPgsChapter && vector.length == 2) {
+                        bookModel.getChapterNames().add(vector[0]);
+                        bookModel.getNumberOfPages().add(new Double(vector[1]));
+                    }
+                }
 
                 linea = br.readLine();
             }
