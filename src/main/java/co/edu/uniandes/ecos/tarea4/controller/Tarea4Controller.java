@@ -69,9 +69,9 @@ public class Tarea4Controller {
      * @param grupoDatos
      * @return String con el codigo html con los resultados de los casos
      */
-    private String ejecutarCasos(List<SizeRange> grupoDatos) {
+    private String ejecutarCasos(List<SizeRange> grupoDatos){
         StringBuilder tableHtml = new StringBuilder();
-
+        
         for (SizeRange sizeRange : grupoDatos) {
             if (sizeRange instanceof ClassModel) {
                 sizeRange.setLnX(Calcular.logaritmoNatural(((ClassModel) sizeRange).getSizePerItem()));
@@ -80,12 +80,12 @@ public class Tarea4Controller {
             }
 
             sizeRange.setPromedio(Calcular.promedio(sizeRange.getLnX()));
-            sizeRange.setVarianza(Calcular.varianza(sizeRange.getLnX()));
-            sizeRange.setDesvEstandar(Calcular.varianza(sizeRange.getLnX()));
+            sizeRange.setVarianza(Calcular.varianza(sizeRange.getLnX(), sizeRange.getPromedio()));
+            sizeRange.setDesvEstandar(Calcular.desviacionEstandar(sizeRange.getLnX(), sizeRange.getPromedio()));
 
             sizeRange.setRangeVS(Calcular.verySmallRange(sizeRange.getPromedio(), sizeRange.getDesvEstandar()));
             sizeRange.setRangeS(Calcular.smallRange(sizeRange.getPromedio(), sizeRange.getDesvEstandar()));
-            sizeRange.setRangeM(sizeRange.getPromedio());
+            sizeRange.setRangeM(Calcular.mediumRange(sizeRange.getPromedio()));
             sizeRange.setRangeL(Calcular.largeRange(sizeRange.getPromedio(), sizeRange.getDesvEstandar()));
             sizeRange.setRangeVL(Calcular.veryLargeRange(sizeRange.getPromedio(), sizeRange.getDesvEstandar()));
         }
@@ -100,17 +100,6 @@ public class Tarea4Controller {
                 .append("<td>VL</td>")
                 .append("</tr>");
         for (SizeRange sizeRange : grupoDatos) {
-            if(sizeRange instanceof ClassModel){
-                System.out.println("Loc por item");
-                for(Double valor : ((ClassModel) sizeRange).getSizePerItem()){
-                    System.out.println(valor);
-                }
-            }else if(sizeRange instanceof BookModel){
-                System.out.println("Paginas por capitulo");
-                for(Double valor : ((BookModel) sizeRange).getNumberOfPages()){
-                    System.out.println(valor);
-                }
-            }
             tableHtml.append("<tr><td>")
                     .append(sizeRange instanceof ClassModel ? Constantes.LOC_METHOD_DATA : sizeRange instanceof BookModel ? Constantes.PGS_CHAPTER : "")
                     .append("</td><td>")

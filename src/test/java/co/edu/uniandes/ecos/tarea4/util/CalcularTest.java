@@ -69,7 +69,7 @@ public class CalcularTest {
      * Test of logaritmoNatural method, of class Calcular.
      */
     @Test
-    public void testLogaritmoNatural() {
+    public void testLogaritmoNatural(){
         System.out.println("logaritmoNatural");
 
         List valores1 = new ArrayList();
@@ -114,7 +114,7 @@ public class CalcularTest {
     public void testVarianza() {
         System.out.println("varianza");
         Double expResult = varianza;
-        Double result = Calcular.varianza(valores);
+        Double result = Calcular.varianza(valores, promedio);
         assertEquals(expResult, result, delta);
     }
 
@@ -125,7 +125,7 @@ public class CalcularTest {
     public void testDesviacionEstandar() {
         System.out.println("desviacionEstandar");
         Double expResult = desviacionEstandar;
-        Double result = Calcular.desviacionEstandar(valores);
+        Double result = Calcular.desviacionEstandar(valores, promedio);
         assertEquals(expResult, result, delta);
     }
 

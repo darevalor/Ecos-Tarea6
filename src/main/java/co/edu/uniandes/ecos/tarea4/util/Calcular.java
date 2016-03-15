@@ -22,9 +22,9 @@ public class Calcular {
      * @param valores
      * @return Retorna una lista con los logaritmos calculados
      */
-    public static List<Double> logaritmoNatural(List<Double> valores) {
+    public static List<Double> logaritmoNatural(List<Double> valores){
         List<Double> logaritmos = new ArrayList<>();
-
+        
         for (Double valor : valores) {
             logaritmos.add(Math.log(valor));
         }
@@ -40,11 +40,11 @@ public class Calcular {
      */
     public static Double promedio(List<Double> valores) {
         double sumatoria = 0;
-
+        
         for (Double valor : valores) {
             sumatoria += valor;
         }
-
+        
         return sumatoria / valores.size();
     }
 
@@ -52,26 +52,28 @@ public class Calcular {
      * Calcula la varianza dado un grupo de datos
      *
      * @param valores
+     * @param promedio
      * @return la varianza del grupo de datos
      */
-    public static Double varianza(List<Double> valores) {
+    public static Double varianza(List<Double> valores, Double promedio) {
         double sumatoria = 0;
 
         for (Double valor : valores) {
-            sumatoria += Math.pow((valor - promedio(valores)), 2);
+            sumatoria += Math.pow((valor - promedio), 2);
         }
 
-        return sumatoria / valores.size();
+        return sumatoria / (valores.size()-1);
     }
 
     /**
      * Calcula la desviacion estandar de una lista de valores
      *
      * @param valores
+     * @param promedio
      * @return desviacion estandar de la lista de valores
      */
-    public static Double desviacionEstandar(List<Double> valores) {
-        return Math.sqrt(varianza(valores));
+    public static Double desviacionEstandar(List<Double> valores, Double promedio) {
+        return Math.sqrt(varianza(valores,promedio));
     }
 
     /**

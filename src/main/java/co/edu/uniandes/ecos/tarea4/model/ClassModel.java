@@ -21,12 +21,6 @@ public class ClassModel extends SizeRange {
     private List<Double> numberOfMethods;
     private List<Double> sizePerItem;
 
-    public ClassModel(){
-        classNames = new ArrayList<>();
-        classLoc = new ArrayList<>();
-        numberOfMethods = new ArrayList<>();
-        sizePerItem = new ArrayList<>();
-    }
     /**
      * Retorna una lista con los nombres de las clases
      *

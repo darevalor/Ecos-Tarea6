@@ -35,10 +35,18 @@ public class ProcesadorArchivos {
      */
     public static List<SizeRange> obtenerGrupoDeDatos(String rutaArchivo) throws Exception {
         List<SizeRange> listaRetorno = new ArrayList<>();
+        List<String> classNames = new ArrayList<>();
+        List<Double> classLoc = new ArrayList<>();
+        List<Double> numberOfMethods = new ArrayList<>();
+        List<Double> sizePerItem = new ArrayList<>();
+        List<String> chapterNames = new ArrayList<>();
+        List<Double> numberOfPages = new ArrayList<>();
+        
         ClassModel classModel = new ClassModel();
         BookModel bookModel = new BookModel();
-        double classLoc = 0;
-        double numberOfMethods = 0;
+        
+        double classLocNum = 0;
+        double numberOfMethodsNum = 0;
         boolean isLocMethodData = false;
         boolean isPgsChapter = false;
 
@@ -46,7 +54,6 @@ public class ProcesadorArchivos {
         try {
             String linea = br.readLine();
             while (linea != null) {
-                System.out.println("Linea: " + linea);
                 if (linea.contains(Constantes.LOC_METHOD_DATA)) {
                     isLocMethodData = true;
                     isPgsChapter = false;
@@ -55,25 +62,31 @@ public class ProcesadorArchivos {
                     isLocMethodData = false;
                 } else if (!linea.contains(Constantes.CLASS_NAME) && !linea.contains(Constantes.PAGES)) {
                     String[] vector = linea.split(";");
-                    System.out.println("Tamanio vector: " + vector.length);
 
                     if (isLocMethodData && vector.length == 3) {
-                        classLoc = Double.parseDouble(vector[1]);
-                        numberOfMethods = Double.parseDouble(vector[2]);
+                        classLocNum = Double.parseDouble(vector[1].trim());
+                        numberOfMethodsNum = Double.parseDouble(vector[2].trim());
 
-                        classModel.getClassNames().add(vector[0]);
-                        classModel.getClassLoc().add(classLoc);
-                        classModel.getNumberOfMethods().add(numberOfMethods);
-                        classModel.getSizePerItem().add(classLoc / numberOfMethods);
-
+                        classNames.add(vector[0].trim());
+                        classLoc.add(classLocNum);
+                        numberOfMethods.add(numberOfMethodsNum);
+                        sizePerItem.add(classLocNum / numberOfMethodsNum);
                     } else if (isPgsChapter && vector.length == 2) {
-                        bookModel.getChapterNames().add(vector[0]);
-                        bookModel.getNumberOfPages().add(new Double(vector[1]));
+                        chapterNames.add(vector[0].trim());
+                        numberOfPages.add(new Double(vector[1].trim()));
                     }
                 }
 
                 linea = br.readLine();
             }
+            classModel.setClassNames(classNames);
+            classModel.setClassLoc(classLoc);
+            classModel.setNumberOfMethods(numberOfMethods);
+            classModel.setSizePerItem(sizePerItem);
+            
+            bookModel.setChapterNames(chapterNames);
+            bookModel.setNumberOfPages(numberOfPages);
+            
             listaRetorno.add(classModel);
             listaRetorno.add(bookModel);
         } finally {
@@ -98,12 +111,12 @@ public class ProcesadorArchivos {
         int count = 1;
         File file;
         do {
-            pathFileName = pathFile + fileName + extension;
+            pathFileName = pathFile + fileName + count + extension;
             file = new File(pathFileName);
-            fileName = fileName + count;
+            
             count++;
         } while (file.exists());
-
+        
         try {
             out = new FileOutputStream(pathFileName);
 

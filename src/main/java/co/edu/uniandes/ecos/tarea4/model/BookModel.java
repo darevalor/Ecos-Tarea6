@@ -18,12 +18,6 @@ public class BookModel extends SizeRange {
 
     private List<String> chapterNames;
     private List<Double> numberOfPages;
-
-    public BookModel() {
-        chapterNames = new ArrayList<>();
-        numberOfPages = new ArrayList<>();
-    }
-
     
     /**
      * Retorna una lista con los nombres de los capitulos
