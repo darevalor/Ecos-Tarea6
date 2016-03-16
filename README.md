@@ -1,45 +1,16 @@
-<<<<<<< HEAD
-# java-getting-started
+# Tarea 4 Calculating a relative size table using standard deviation
 
-A barebones Java app, which can easily be deployed to Heroku.
+Antes de realizar la configuracion del proyecto verifique los siguientes pasos:
 
-This application support the [Getting Started with Java on Heroku](https://devcenter.heroku.com/articles/getting-started-with-java) article - check it out.
+1. Verifique que tiene instalado Maven ejecutando el siguiente comando en una ventana de comandos: "mvn -v". Si no lo tiene instalado siga las instrucciones indicadas en la siguiente pagina: http://maven.apache.org/install.html.
+2. Verifique que tiene instalado Git en su equipo. Si no es asi puede descargarlo accediendo a la siguiente url: https://git-scm.com/.
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+Pasos para obtener el codigo fuente del Proyecto:
 
-## Running Locally
+1. Abrir la ventana de comandos Git Bash o Git CMD. 
+2. Ubicarse en la carpeta donde usualmente crea sus proyectos de desarrollo.
+3. Descargar el proyecto con el comando: "git clone https://git.heroku.com/ecos-5101-tarea4.git <nombre_proyecto>", donde <nombre_proyecto> sera el nombre que desee ponerle al proyecto.
+4. Empaquete el proyecto maven con el comando: "mvn package".
+5. Para compilar y correr el test JUnit ejecute el comando "mvn clean install".
 
-Make sure you have Java and Maven installed.  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
-
-```sh
-$ git clone https://github.com/heroku/java-getting-started.git
-$ cd java-getting-started
-$ mvn install
-$ foreman start web
-```
-
-Your app should now be running on [localhost:5000](http://localhost:5000/).
-
-If you're going to use a database, ensure you have a local `.env` file that reads something like this:
-
-```
-DATABASE_URL=postgres://localhost:5432/java_database_name
-```
-
-## Deploying to Heroku
-
-```sh
-$ heroku create
-$ git push heroku master
-$ heroku open
-```
-
-## Documentation
-
-For more information about using Java on Heroku, see these Dev Center articles:
-
-- [Java on Heroku](https://devcenter.heroku.com/categories/java)
-=======
-# Ecos-Tarea4
-Calculating a relative size table using standard desviation
->>>>>>> 4395588eeb9a79d8ea256ea642046727aa9fbd05
+Para acceder al programa en Heroku, ingrese a la siguiente URL: https://ecos-5101-tarea3.herokuapp.com/
