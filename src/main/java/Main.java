@@ -1,10 +1,10 @@
 /*
 * Class Name: Main                                                         
 * Name:       Daniel Arevalo                                                                      
-* Date:       13/03/2016     
+* Date:       25/03/2016     
 * Version:    1.0
 */
-import co.edu.uniandes.ecos.tarea4.controller.Tarea4Controller;
+import co.edu.uniandes.ecos.tarea5.controller.Tarea5Controller;
 import java.util.HashMap;
 import java.util.Map;
 import static spark.Spark.*;
@@ -21,15 +21,15 @@ public class Main {
      * @param args 
      */
     public static void main(String[] args) {
-        Tarea4Controller controller = new Tarea4Controller();
+        Tarea5Controller controller = new Tarea5Controller();
         
         port(Integer.valueOf(System.getenv("PORT")));
         staticFileLocation("/public");
 
         get("/hello", (req, res) -> "Hello World");
 
-        post("/upload", (req, res) -> {
-            return controller.cargarArchivo(req, res);
+        get("/upload", (req, res) -> {
+            return controller.procesarInformacion(req, res);
         });
 
         get("/", (request, response) -> {
