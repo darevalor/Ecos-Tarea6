@@ -4,13 +4,13 @@
         <title>File Upload</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript">
-            function validar(xRange, dof){
-                x = document.getElementById(xRange);
+            function validar(p, dof){
+                p = document.getElementById(p);
                 gdl = document.getElementById(dof);
                 
-                if(x.value == "" || !validarSiNumero(x.value)){
-                    x.focus();
-                    alert("El rango X no es un numero valido");
+                if(p.value == "" || !validarSiNumero(p.value)){
+                    p.focus();
+                    alert("El valor p no es un numero valido");
                     return false;
                 }else if(gdl.value == "" || !validarSiNumero(gdl.value)){
                     gdl.focus();
@@ -29,7 +29,7 @@
         </script>
     </head>
     <body>
-        <form method="GET" action="upload" onsubmit="return validar('xRange','dof')">
+        <form method="GET" action="upload" onsubmit="return validar('p','dof')">
             <table style="width: 50%" border="1">
                 <tr>
                     <td colspan="2">
@@ -43,7 +43,7 @@
                         Rango superior X: 
                     </td>
                     <td>
-                        <input type="text" name="xRange" id="xRange" /> <br/>
+                        <input type="text" name="p" id="p" /> <br/>
                     </td>
                 </tr>
                 <tr>

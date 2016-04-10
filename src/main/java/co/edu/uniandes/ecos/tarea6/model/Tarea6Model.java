@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.ecos.tarea5.model;
+package co.edu.uniandes.ecos.tarea6.model;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author Daniel
  */
-public class Tarea5Model {
+public class Tarea6Model {
 
     private Double segmentWidth;
     private Double degreesOfFreedom;

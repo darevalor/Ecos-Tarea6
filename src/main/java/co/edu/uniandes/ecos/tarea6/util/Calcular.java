@@ -4,7 +4,7 @@
 * Date:       25/03/2016     
 * Version:    1.0
  */
-package co.edu.uniandes.ecos.tarea5.util;
+package co.edu.uniandes.ecos.tarea6.util;
 
 /**
  * Clase encargada de realizar los calculos necesarios para la integracion
@@ -70,5 +70,9 @@ public class Calcular {
      */
     public static Double valorIntermedio(Double ancho, Double multiplicador, Double funcion) {
         return (ancho / 3) * multiplicador * funcion;
+    }
+    
+    public static Double marginOfError(Double apxValue, Double exactValue){
+        return Math.abs(apxValue - exactValue)/exactValue;
     }
 }

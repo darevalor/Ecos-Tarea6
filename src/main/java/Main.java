@@ -4,7 +4,7 @@
 * Date:       25/03/2016     
 * Version:    1.0
 */
-import co.edu.uniandes.ecos.tarea5.controller.Tarea5Controller;
+import co.edu.uniandes.ecos.tarea6.controller.Tarea6Controller;
 import java.util.HashMap;
 import java.util.Map;
 import static spark.Spark.*;
@@ -21,7 +21,7 @@ public class Main {
      * @param args 
      */
     public static void main(String[] args) {
-        Tarea5Controller controller = new Tarea5Controller();
+        Tarea6Controller controller = new Tarea6Controller();
         
         port(Integer.valueOf(System.getenv("PORT")));
         staticFileLocation("/public");

@@ -4,7 +4,7 @@
 * Date:       25/03/2016     
 * Version:    1.0
  */
-package co.edu.uniandes.ecos.tarea5.util;
+package co.edu.uniandes.ecos.tarea6.util;
 
 /**
  * Clase utilitaria de constantes
