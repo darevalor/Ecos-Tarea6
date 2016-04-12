@@ -40,7 +40,7 @@
                 </tr>
                 <tr>
                     <td>
-                        Rango superior X: 
+                        Result of p: 
                     </td>
                     <td>
                         <input type="text" name="p" id="p" /> <br/>

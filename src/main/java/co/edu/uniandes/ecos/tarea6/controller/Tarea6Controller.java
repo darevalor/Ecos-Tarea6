@@ -60,11 +60,14 @@ public class Tarea6Controller {
         StringBuilder tableHtml = new StringBuilder();
         Double sumatoriaValoresIntermedios;
         Double error;
-        double d = 0.5;
+        Double d = new Double("0.5");
+        String estadoAnterior = "";
+        String estadoActual = "";
         
         do{
             sumatoriaValoresIntermedios = new Double(0);
             tarea6Model.setSegmentWidth(tarea6Model.getX() / Constantes.NUMBER_OF_SEGMENTS);
+            tarea6Model.getIntermediateValues().clear();
 
             for (int i = 0; i <= Constantes.NUMBER_OF_SEGMENTS; i++) {
                 TDistributionModel distributionModel = new TDistributionModel();
@@ -88,23 +91,37 @@ public class Tarea6Controller {
             
             error = Calcular.marginOfError(sumatoriaValoresIntermedios, tarea6Model.getIntegralValue());
             if(sumatoriaValoresIntermedios < tarea6Model.getIntegralValue() && !error.equals(Constantes.ERROR)){
+                System.out.println("\n\nIntegral (Suma): "+sumatoriaValoresIntermedios);
                 tarea6Model.setX(tarea6Model.getX() + d);
+                estadoAnterior = estadoActual.equals("") ? "suma" : estadoActual;
+                estadoActual = "suma";
             }else if(sumatoriaValoresIntermedios > tarea6Model.getIntegralValue() && !error.equals(Constantes.ERROR)){
                 tarea6Model.setX(tarea6Model.getX() - d);
+                System.out.println("\n\nIntegral (Resta): "+sumatoriaValoresIntermedios);
+                estadoAnterior = estadoActual.equals("") ? "resta" : estadoActual;
+                estadoActual = "resta";
             }
             
-        }while(error.equals(Constantes.ERROR));
+            if(!estadoAnterior.equals(estadoActual))
+                d = d / 2;
+            
+            System.out.println("P: "+tarea6Model.getIntegralValue());
+            System.out.println("dof: "+tarea6Model.getDegreesOfFreedom());
+            System.out.println("X: "+tarea6Model.getX());
+            System.out.println("error: "+error);
+            System.out.println("d: "+d);
+        }while(error >= (Constantes.ERROR));
         
         tableHtml.append("<table border='1'>")
                 .append("<tr>")
-                .append("<td>X</td>")
-                .append("<td>dof</td>")
                 .append("<td>p</td>")
+                .append("<td>dof</td>")
+                .append("<td>X</td>")
                 .append("</tr>")
                 .append("<tr>")
-                .append("<td>").append(tarea6Model.getX()).append("</td>")
-                .append("<td>").append(tarea6Model.getDegreesOfFreedom()).append("</td>")
                 .append("<td>").append(tarea6Model.getIntegralValue()).append("</td>")
+                .append("<td>").append(tarea6Model.getDegreesOfFreedom()).append("</td>")
+                .append("<td>").append(tarea6Model.getX()).append("</td>")
                 .append("</tr>")
                 .append("</table>");
         return tableHtml.toString();
