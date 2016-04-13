@@ -5,7 +5,6 @@
  */
 package co.edu.uniandes.ecos.tarea6.util;
 
-import co.edu.uniandes.ecos.tarea6.util.Calcular;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

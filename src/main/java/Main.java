@@ -1,7 +1,7 @@
 /*
 * Class Name: Main                                                         
 * Name:       Daniel Arevalo                                                                      
-* Date:       25/03/2016     
+* Date:       12/04/2016     
 * Version:    1.0
 */
 import co.edu.uniandes.ecos.tarea6.controller.Tarea6Controller;

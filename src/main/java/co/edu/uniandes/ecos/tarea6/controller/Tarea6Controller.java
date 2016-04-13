@@ -1,7 +1,7 @@
 /*
 * Class Name: Tarea6Controller                                                         
 * Name:       Daniel Arevalo                                                                      
-* Date:       25/03/2016     
+* Date:       12/04/2016     
 * Version:    1.0
  */
 package co.edu.uniandes.ecos.tarea6.controller;
@@ -27,8 +27,8 @@ public class Tarea6Controller {
     private Tarea6Model tarea6Model;
 
     /**
-     * Se encarga de instanciar a la clase ProcesadorArchivos para cargar el
-     * archivo seleccionado por el usuario
+     * Se encarga de realizar recibir los valores ingresados por el usuario
+     * y llamar al metodo correspondiente para los calculos de la regla Simpson
      *
      * @param request
      * @param response
@@ -45,14 +45,13 @@ public class Tarea6Controller {
 
             return calcularIntegral();
         } catch (Exception ex) {
-            ex.printStackTrace();
             LOGGER.log(Level.SEVERE, null, ex);
             return ex.getMessage();
         }
     }
 
     /**
-     * Se encarga procesar los calculos para la integracion numerica
+     * Se encarga de buscar el valor X dado un valor P y un valor dof
      *
      * @return String con el codigo html con los resultados
      */
