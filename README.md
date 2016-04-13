@@ -1,4 +1,4 @@
-# Tarea 5 Simpson´s Rule
+# Tarea 6 Simpson´s Rule Part II
 
 Antes de realizar la configuracion del proyecto verifique los siguientes pasos:
 
@@ -9,9 +9,9 @@ Pasos para obtener el codigo fuente del Proyecto:
 
 1. Abrir la ventana de comandos Git Bash o Git CMD. 
 2. Ubicarse en la carpeta donde usualmente crea sus proyectos de desarrollo.
-3. Descargar el proyecto desde heroku: con el comando: "git clone https://git.heroku.com/ecos-5101-tarea5.git <nombre_proyecto>", donde <nombre_proyecto> sera el nombre que desee ponerle al proyecto.
-4. Descargar el proyecto desde GitHub: con el comando: "git clone https://github.com/darevalor/Ecos-Tarea5.git <nombre_proyecto>", donde <nombre_proyecto> sera el nombre que desee ponerle al proyecto.
+3. Descargar el proyecto desde heroku: con el comando: "git clone https://git.heroku.com/ecos-5101-tarea6.git <nombre_proyecto>", donde <nombre_proyecto> sera el nombre que desee ponerle al proyecto.
+4. Descargar el proyecto desde GitHub: con el comando: "git clone https://github.com/darevalor/Ecos-Tarea6.git <nombre_proyecto>", donde <nombre_proyecto> sera el nombre que desee ponerle al proyecto.
 4. Empaquete el proyecto maven con el comando: "mvn package".
 5. Para compilar y correr el test JUnit ejecute el comando "mvn clean install".
 
-Para acceder al programa en Heroku, ingrese a la siguiente URL: https://ecos-5101-tarea5.herokuapp.com/
+Para acceder al programa en Heroku, ingrese a la siguiente URL: https://ecos-5101-tarea6.herokuapp.com/
